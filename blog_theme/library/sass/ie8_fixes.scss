@@ -1,0 +1,35 @@
+header {
+  nav 
+{
+left: 0;	
+}
+}
+
+body
+{
+padding-left: 240px;	
+}
+
+header nav a#show-menu
+{
+display: none;	
+}
+div.lead-in section.details
+{
+background: #000;	
+}
+
+@media only screen and (min-width: 1025px) {
+	
+	header {
+  nav 
+{
+left: 0;	
+}
+}
+
+body
+{
+padding-left: 320px;	
+}
+}

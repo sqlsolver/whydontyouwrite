@@ -1,0 +1,884 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>Documentation for Sculpt. A responsive framework from Heart internet</title>
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="library/css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="library/css/documentation.css" rel="stylesheet" type="text/css">
+	<link href="library/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+	<link href="library/css/ie8_fixes.css" rel="stylesheet" type="text/css">
+	<![endif]-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('a#show-menu').click( function( event ){
+			$('header').toggleClass('default');
+			$('header').toggleClass('show');
+	return false;
+});
+		});
+	</script>
+	<script src="library/js/modernizr.min.js" type="text/javascript"></script>
+	<script src="library/js/modernizr.init.js" type="text/javascript"></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-183559-1']);
+	_gaq.push(['_setDomainName', '.heartinternet.co.uk']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+		</script>
+	<style type="text/css">
+	pre.prettyprint 
+	{
+		padding: 0 25px !important;
+		border: 0 !important;
+		border-left: 2px dotted #dededc !important;
+	}
+	</style>
+</head>
+<body>
+	<header class="default">
+		<h2 class="hide-mobile">Also available from Heart Internet</h2>
+		<a href="http://www.heartinternet.co.uk"><img src="library/images/documentation/heart-internet-logo.png" alt="Heart Internet"></a>
+		<nav class="container">
+			<ul class="column three no-margin">
+				<li><a href="http://www.heartinternet.co.uk/domain-names" class="domain-names">Domain Names<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/web-hosting" class="web-hosting">Web Hosting<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/reseller-hosting" class="reseller-hosting">Reseller Hosting<span></span></a></li>
+			</ul>
+			<ul class="column three no-margin">
+				<li><a href="http://www.heartinternet.co.uk/vps" class="vps">VPS<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/hybrid-servers" class="hybrid-server">Hybrid Servers<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/dedicated-servers" class="dedicated-server">Dedicated Servers<span></span></a></li>
+			</ul>
+			<ul class="column three no-margin">
+				<li><a href="http://www.heartinternet.co.uk/create-a-website" class="website-builder">Make Your Own Website<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/mobile-website-builder" class="mobile-website-builder">Mobile Website Builder<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/website-builder" class="sitedesigner" >Sitedesigner<span></span></a></li>
+			</ul>
+			<ul class="column three no-margin">
+				<li><a href="http://www.heartinternet.co.uk/search-engine-submission" class="search-engine-submission">Search Submission<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/website-security" class="website-security">Website Security<span></span></a></li>
+				<li><a href="http://www.heartinternet.co.uk/email-hosting" class="email-hosting">Email Hosting<span></span></a></li>
+			</ul>
+		</nav> 
+		<a href="#" id="show-menu"><span>Show</span></a> 
+	</header>
+	<div id="header-strip">
+		<div class="container">
+			<div class="column twelve">
+				<a href="http://www.heartinternet.co.uk"><img src="library/images/documentation/heart-internet-logo.png" alt="Heart Internet"></a>
+			</div>
+		</div>
+	</div>
+	<section class="container" id="wrapper">
+		<div class="column twelve">
+			<h1>How to Sculpt.</h1>
+			<h3>An introduction to our responsive framework</h3>
+
+			<a href="http://www.heartinternet.co.uk/sculpt" class="return">Go to Sculpt homepage</a>
+
+			<p>Sculpt is a powerful, flexible and fast tool but it doesn't try to do too much for you. You won't spend time stripping out things you don't need, which will give you more time to <b>design the site you need</b>  and lay it over a lightweight, modular framework.</p>
+
+			<p>Here are the basics</p>
+
+			<ol>
+				<li><a href="#structure">Structure</a></li>
+				<li><a href="#elements">Elements and styles</a></li>
+				<li><a href="#typography">Typography</a></li>
+				<li><a href="#modernizr">Modernizr &amp; Scripts</a></li>
+
+			</ol>
+		</div><!-- column twelve -->
+	</section><!-- container -->
+	<section id="structure" class="container">
+		<div class="column twelve">
+			<h3>Structure</h3>
+			<p>Sculpt is modular by nature, so you only drop onto the page the elements you need to use. The basic structure of a content block looks like this</p>
+
+<pre class="prettyprint">
+<code>
+&lt;div class="container"&gt;
+	&lt;div class="column twelve"&gt;
+		This is some content.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+			<p>Which will look something like this:</p>
+
+			<div class="row">
+				<div class="column example space-both twelve">
+					This is some content.
+				</div>
+			</div>
+
+			<p><small>(note, all example columns have a background colour and extra margin applied for illustrative purposes)</small></p>
+
+			<p>The class declarations follow the rule <b>type | format | size</b>. In this instance we only have type and size.</p>
+
+			<p>You don't have to stick to a full-width column, though. Should you want to segment your content, you can specify a different column width. As long as adjacent columns add up to twelve, the layout will behave as expected.</p>
+
+<pre class="prettyprint">
+<code>
+&lt;div class="container"&gt;
+	&lt;div class="column six"&gt;
+		This is six column widths.
+	&lt;/div&gt;
+	&lt;div class="column three"&gt;
+		This is three column widths.
+	&lt;/div&gt;
+	&lt;div class="column three"&gt;
+		This is three column widths.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+			<p>Which will give you.</p>
+
+			<div class="row">
+				<div class="column example space-both six">
+					This is six column widths.
+				</div>
+				<div class="column example space-both three">
+					This is three column widths.
+				</div>
+				<div class="column example space-both three">
+					This is three column widths.
+				</div>
+			</div>
+
+			<p>But wait, there's more! On occasion you will need to split the content in a column and this is where <i>nested</i> columns come in. These are arranged in rows like so:
+
+<pre class="prettyprint">
+<code>
+&lt;div class="container"&gt;
+	&lt;div class="column six"&gt;
+		This is six column widths.
+	&lt;/div&gt;
+	&lt;div class="column six"&gt;
+		This is six column widths.
+		&lt;div class="row"&gt;
+			&lt;div class="column three"&gt;
+				This is three column widths.
+			&lt;/div&gt;
+			&lt;div class="column three"&gt;
+				This is three column widths.
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="row"&gt;
+			&lt;ul class="column two"&gt;
+				&lt;li&gt;This is two column widths.
+			&lt;/ul&gt;
+			&lt;div class="column two"&gt;
+				This is two column widths.
+			&lt;/div&gt;
+			&lt;div class="column two"&gt;
+				This is two column widths.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+				Which will look like so:
+
+				<div class="row">
+					<div class="column example space-both six">
+						This is six column widths.
+					</div>
+					<div class="column example space-both six">
+						This is six column widths.
+						<div class="row">
+							<div class="column example space-top three">
+								This is three column widths.
+							</div>
+							<div class="column example space-top three">
+								This is three column widths.
+							</div>
+						</div>
+						<div class="row">
+							<ul class="column example space-top two">
+								<li>This is two column widths.</li>
+							</ul>
+							<div class="column example space-top two">
+								This is two column widths.
+							</div>
+							<div class="column example space-top two">
+								This is two column widths.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>But what happens if you don't want to use divs? Semantic markup is another core element of sculpt and columns can be just about any valid html element. For example, a form with the following markup:</p>
+
+<pre class="prettyprint">
+<code>
+&lt;form class="styled"&gt;
+	&lt;div class="row"&gt;
+		&lt;input type="text" value="text box" class="column four"&gt;
+		&lt;input type="text" value="text box" class="column four"&gt;
+		&lt;input type="text" value="text box" class="column four"&gt;
+	&lt;/div&gt;	
+	&lt;div class="row"&gt;
+		&lt;textarea class="column eight" rows="10" cols="10"&gt;
+	This is a textarea. It contains text.
+		&lt;/textarea&gt;
+	&lt;/div&gt;	
+	&lt;div class="row"&gt;
+		&lt;input type="submit" class="column two"&gt;
+	&lt;/div&gt;							
+&lt;/form&gt;
+</code>
+</pre>	
+
+				<p>Will look like this (with a little help from one of Sculpt's core style classes to make it pretty):</p>
+
+				<form class="styled">
+					<div class="row">
+						<input type="text" value="text box" class="column four">
+						<input type="text" value="text box" class="column four">
+						<input type="text" value="text box" class="column four">
+					</div>	
+					<div class="row">
+						<textarea class="column twelve" rows="10" cols="10">This is a textarea. It contains text.</textarea>
+					</div>	
+					<div class="row">
+						<input type="submit" class="column two">
+					</div>							
+				</form>
+
+				<p>It's also possible to have a grid with no margins between the columns simply by adding a class of <code>no-margin</code> to the column (eg <code>"column no-margin two"</code>). Because removing the margins adds width to the columns, they can only be nested in <i>Other</i> marginless columns.</p>
+
+				<p>Adding a class of <code>fluid</code> to the container element will cause the grid to become full-width and percentage-based. However it will still stack at mobile screen-sizes.</p>
+
+			</div>
+
+		</section>
+		<section id="elements" class="container">
+			<div class="column twelve">
+				<h3>Elements and styles</h3>
+				<p>By default - and by design - Sculpt offers little in the way of included styles. We don't want to inform your design - you should approach each design decision on its own merits - but we know it's always helpful to see how something is done. To that end here are the included styles and elements they affect.</p>
+
+
+				
+
+				<h4>Lists</h4>
+				<p>Sculpt is designed to play nicely with symbol fonts, such as Font Awesome, and the stylesheets and font files for FA are included by default. This allows us to take the following list:</p>
+
+				<ul>
+					<li>List item</li>
+					<li>List item</li>
+				</ul>
+
+				<p>And make it a little bit more fun. Like so:</p>
+
+				<ul class="fa-ul">
+					<li><i class="fa-li fa fa-dot-circle-o"></i>List item</li>
+					<li><i class="fa-li fa fa-lightbulb-o"></i>List item</li>
+				</ul>
+
+				<p>Simply by altering the markup from:</p>
+<pre class="prettyprint">
+<code>
+&lt;ul&gt;
+	&lt;li&gt;List item&lt;li&gt;
+	&lt;li&gt;List item&lt;li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+
+				<p>to</p>
+
+<pre class="prettyprint">
+<code>
+&lt;ul class="fa-ul"&gt;
+	&lt;li&gt;&lt;i class="fa-li fa fa-dot-circle-o"&gt;List item&lt;li&gt;
+	&lt;li&gt;&lt;i class="fa-li fa fa-lightbulb-o"&gt;List item&lt;li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+
+				<h4>Buttons</h4>
+				<p>Included are a few basic button styles to get you started. These include small, medium and large buttons, as well as button groups and a dropdown selector. To begin, simply add a class of <code>button</code> to your <code>&lt;a&gt;</code> tag. As the buttons are <code>display:inline-block</code>, make sure there are no line breaks or spaces between the buttons within groups, or they will show a gap.</p>
+
+
+				<p>Default buttons</p>
+				<div class="row">
+					<div class="column three">
+						<a href="#" class="button small"><i class="fa fw fa-cog pull-left"></i>&nbsp;&nbsp;Small button</a></div>
+						<div class="column nine">
+<pre class="prettyprint">
+<code>
+&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-cog pull-left"&gt;&lt;/i&gt;Small button&lt;/a&gt;
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="column three">
+							<a href="#" class="button"><i class="fa fw fa-cog"></i>&nbsp;&nbsp;Default button</a>
+						</div>
+						<div class="column nine">
+<pre class="prettyprint">
+<code>
+&lt;a href="#" class="button"&gt;&lt;i class="fa fw fa-cog pull-left"&gt;&lt;/i&gt;Small button&lt;/a&gt;
+</code>
+</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="column three"><a href="#" class="button large"><i class="fa fw fa-cog"></i>&nbsp;&nbsp;Large button</a></div>
+						<div class="column nine">
+<pre class="prettyprint">
+<code>
+&lt;a href="#" class="button large"&gt;&lt;i class="fa fw fa-cog pull-left"&gt;&lt;/i&gt;Small button&lt;/a&gt;
+</code>
+</pre>
+						</div>
+					</div>
+				<div class="row">
+					<div class="column three">
+					<p>A button group (small)</p>
+					<div class="button-group"> <a href="#" class="button small"><i class="fa fw fa-align-left "></i></a><a href="#" class="button small"><i class="fa fw fa-align-center "></i></a><a href="#" class="button small"><i class="fa fw fa-align-right "></i></a><a href="#" class="button small"><i class="fa fw fa-align-justify "></i></a> </div>
+					</div>
+				<div class="column nine">
+<pre class="prettyprint">
+<code>
+&lt;div class="button-group"&gt; 
+&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-left "&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-center "&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-right "&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-justify "&gt;&lt;/i&gt;&lt;/a&gt; 
+&lt;/div&gt;
+</code>
+</pre>
+		</div>
+				</div>
+
+				<div class="row">
+					<div class="column three">
+					<p>A button group (normal)</p>
+					<div class="button-group"> <a href="#" class="button"><i class="fa fw fa-align-left "></i></a><a href="#" class="button"><i class="fa fw fa-align-center "></i></a><a href="#" class="button"><i class="fa fw fa-align-right "></i></a><a href="#" class="button"><i class="fa fw fa-align-justify "></i></a> </div>
+				</div>
+				<div class="column nine">
+<pre class="prettyprint">
+<code>
+&lt;div class="button-group"&gt; 
+&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-left "&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-center "&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-right "&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="button small"&gt;&lt;i class="fa fw fa-align-justify "&gt;&lt;/i&gt;&lt;/a&gt; 
+&lt;/div&gt;
+</code>
+</pre>
+		</div>
+				</div>
+
+<div class="row">
+	<div class="column three">
+				<p>Dropdown button</p>
+				<div class="button-group dropdown">
+					<a href="#" class="button small semibold"><i class="fa fw fa-user"></i>&nbsp;&nbsp;Options</a><a href="#" class="button small drop"><i class="fa fw fa-angle-down"></i></a>
+					<ul>
+						<li><a href="#"><i class="fa fw fa-cog fa-spin"></i>&nbsp;&nbsp;This is a Drop down item</a></li>
+						<li><a href="#"><i class="fa fw fa-cog fa-spin"></i>&nbsp;&nbsp;This is a Drop down item</a></li>
+						<li><a href="#"><i class="fa fw fa-cog fa-spin"></i>&nbsp;&nbsp;This is a Drop down item</a></li>
+						<li><a href="#"><i class="fa fw fa-cog fa-spin"></i>&nbsp;&nbsp;This is a Drop down item</a></li>
+					</ul>
+				</div>
+</div>
+<div class="column nine">
+<pre class="prettyprint">
+<code>
+&lt;div class="button-group dropdown"&gt;
+&lt;a href="#" class="button success small semibold"&gt;&lt;i class="fa fw fa-user">&lt;/i&gt;&nbsp;&nbsp;Options&lt;/a&gt;&lt;a href="#" class="button success small drop"&gt;&lt;i class="fa fw fa-angle-down"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fw fa-cog fa-spin"&gt;&lt;/i&gt;This is a Drop down item&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fw fa-cog fa-spin"&gt;&lt;/i&gt;This is a Drop down item&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fw fa-cog fa-spin"&gt;&lt;/i&gt;This is a Drop down item&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;&lt;i class="fa fw fa-cog fa-spin"&gt;&lt;/i&gt;This is a Drop down item&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+</div>
+</div>
+
+<div class="row">
+<div class="column twelve">
+<p>There are some standard colour classes that can be applied to buttons. They are:</p>
+</div>
+</div>
+<div class="row">
+<div class="column three">
+<p><a href="#" class="button success"><i class="fa fw fa-cog"></i>&nbsp;&nbsp;.success</a></p>
+</div>
+<div class="column three">
+<p><a href="#" class="button warning"><i class="fa fw fa-cog"></i>&nbsp;&nbsp;.warning</a></p>
+</div>
+<div class="column three">
+<p><a href="#" class="button attention"><i class="fa fw fa-cog"></i>&nbsp;&nbsp;.attention</a></p>
+</div>
+</div>
+
+<div class="row">
+<div class="column twelve">
+<h4>Forms</h4>
+<p>Much like the form further up the page, adding a class of "styled" allows us to make forms more consistent across browsers. For example:</p>
+<div class="row">
+	<div class="column three">
+<form class="styled">
+								<input type="radio" checked="checked" name="radios-01" id="option-01"><label for="option-01"><span></span>checked radio button</label><br>
+								<input type="radio" name="radios-01" id="option-02"><label for="option-02"><span></span>unchecked radio button</label>
+								</form>
+</div>
+<div class="column nine">
+<pre class="prettyprint">
+&lt;form class="styled"&gt;
+&lt;input type="radio" checked="checked" name="radios-01" id="option-01"&gt;&lt;label for="option-01"&gt;&lt;span&gt;&lt;/span&gt;checked radio button&lt;/label&gt;&lt;br&gt;
+&lt;input type="radio" name="radios-01" id="option-02"&gt;&lt;label for="option-02"&gt;&lt;span&gt;&lt;/span&gt;unchecked radio button&lt;/label&gt;
+&lt;/form&gt;
+</pre>
+</div>
+</div>
+<div class="row">
+	<div class="column three">
+<form class="styled">
+								<input type="checkbox" checked="checked" name="radios-02" id="option-03" value="first"><label for="option-03"><span></span>check option 1</label><br>
+								<input type="checkbox" name="radios-02" id="option-04"><label for="option-04" value="second"><span></span>check option 2</label>
+								</form>
+</div>
+<div class="column nine">
+<pre class="prettyprint">
+&lt;form class="styled"&gt;
+&lt;input type="checkbox" checked="checked" name="radios-01" id="option-01"&gt;&lt;label for="option-01" value="first"&gt;&lt;span&gt;&lt;/span&gt;checked radio button&lt;/label&gt;&lt;br&gt;
+&lt;input type="checkbox" name="radios-01" id="option-02"&gt;&lt;label for="option-02" value="second"&gt;&lt;span&gt;&lt;/span&gt;unchecked radio button&lt;/label&gt;
+&lt;/form&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<h4>Horizontal Navigation and Drop Down menus</h4>
+				<p>Want to get started quickly? Sculpt includes a simple, flexible header out of the box: Featuring a logo and a horizontal nav with drop down support. You can take tweak the code from the template or add some of the functionality to your own design</p>
+
+				<p>Lets turn a basic unordered list of links in a header into a horizontal nav with drop-down menu support by adding just two classes: <code>.drop-down</code> and <code>.horizontal</code> (if you want it floated to the right, you can also add <code>.right</code>. Simple!)</p>
+
+<pre class="prettyprint">
+<code>
+		
+&lt;ul class=&quot;drop-down horizontal&quot;&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Featured&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Other Options&lt;i class=&quot;fa fw fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+         &lt;ul&gt;
+	  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Links level 2&lt;/a&gt;&lt;/li&gt;
+	  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Links level 2&lt;/a&gt;&lt;/li&gt;
+	 &lt;/ul&gt;
+        &lt;/li&gt;
+&lt;/ul&gt;
+
+</code>
+</pre>
+
+<p>Which gives us:</p>
+<br>
+
+			<div class="row">
+				<div class="column twelve">
+					<ul class="drop-down horizontal">
+						<li><a href="#">Home</a></li>
+					        <li><a href="#">Blog</a></li>
+					        <li><a href="#">Featured</a></li>
+					        <li><a href="#">Contact</a></li>
+					        <li><a href="#">Other Options <i class="fa fw fa-angle-down"></i></a>
+				                <ul>
+				                    <li><a href="#">Links level 2</a></li>
+				                    <li><a href="#">Links level 3</a>
+				                    	<ul>
+				                    		<li><a href="#">Links level 3</a></li>
+				                    		<li><a href="#">Links level 3</a></li>
+				                    		<li><a href="#">Links level 3</a></li>
+				                    	</ul>
+				                    </li>
+				                </ul>
+					        </li>
+					</ul>
+				</div>
+			</div>
+		
+<br><br>
+
+<p>Our goal with Sculpt is to keep styling to a minimum, but should you want a bit of sparkle for minimum effort, add the <code>.styled</code> class to the ul, this makes our links and drop-downs a little nicer while giving us some subtle rollovers:</p>
+<br>
+
+			<div class="row">
+				<div class="column twelve">
+					<ul class="drop-down horizontal styled">
+						<li><a href="#">Home</a></li>
+					        <li><a href="#">Blog</a></li>
+					        <li><a href="#">Featured</a></li>
+					        <li><a href="#">Contact</a></li>
+					        <li><a href="#">Other Options <i class="fa fw fa-angle-down"></i></a>
+				                <ul>
+				                     <li><a href="#">Links level 2</a></li>
+				                    <li><a href="#">Links level 3</a>
+				                    	<ul>
+				                    		<li><a href="#">Links level 3</a></li>
+				                    		<li><a href="#">Links level 3</a></li>
+				                    		<li><a href="#">Links level 3</a></li>
+				                    	</ul>
+				                </ul>
+					        </li>
+					</ul>
+				</div>
+			</div>
+			<br><br>
+
+
+		<h4>Feature Blocks</h4>
+		<p>You can easily highlight key products and features by using sculpt to present a row of images and text. Lets create some now:</p>
+
+		<p>All we are doing is creating a container with 4 columns, we're using <code>.column .three</code> for this as 12/4 = 3. We're simply adding adding an image, header and paragraph to each column. To make it funky we add <code>.styled</code> to the image to create the circle effect.</p>
+
+
+<pre class="prettyprint">
+	<code>
+&lt;div class=&quot;container&quot;&gt;
+	&lt;article class=&quot;column three&quot;&gt;
+		&lt;img class=&quot;styled&quot; src=&quot;library/images/featured1.jpg&quot; alt=&quot;Ryu&quot; /&gt;
+		&lt;h4&gt;Ryu&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;
+		
+	&lt;/article&gt;
+
+	&lt;article class=&quot;column three&quot;&gt;
+		&lt;img class=&quot;styled&quot; src=&quot;library/images/featured2.jpg&quot; alt=&quot;Ken&quot; /&gt;
+		&lt;h4&gt;Ken&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;
+		
+	&lt;/article&gt;
+
+	&lt;article class=&quot;column three&quot;&gt;
+		&lt;img class=&quot;styled&quot; src=&quot;library/images/featured3.jpg&quot; alt=&quot;Bison&quot; /&gt;
+		&lt;h4&gt;Bison&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;	
+	&lt;/article&gt;
+
+	&lt;article class=&quot;column three&quot;&gt;
+		&lt;img class=&quot;styled&quot; src=&quot;library/images/featured4.jpg&quot; alt=&quot;Blanca&quot; /&gt;
+		&lt;h4&gt;Blanca&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;	
+	&lt;/article&gt;
+&lt;/div&gt;
+
+
+	</code>
+</pre>
+
+<div class="row">
+					<article class="column three">
+						<img class="styled" src="library/images/featured1.jpg" alt="Ryu" />
+						<h4>Ryu</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+						
+					</article>
+
+					<article class="column three">
+						<img class="styled" src="library/images/featured2.jpg" alt="Ken" />
+						<h4>Ken</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+						
+					</article>
+
+					<article class="column three">
+						<img class="styled" src="library/images/featured3.jpg" alt="Bison" />
+						<h4>Bison</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>	
+					</article>
+
+					<article class="column three">
+						<img class="styled" src="library/images/featured4.jpg" alt="Blanca" />
+						<h4>Blanca</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>	
+					</article>
+
+</div>
+
+		<h4>Footer</h4>
+		<p>You can use our attractive prebuilt 4 column footer in any of your projects,</p>
+		<p>Simply add a basic 4 column layout within a footer tag and attach the <code>.styled</code> class<p>
+		<pre class="prettyprint">
+
+			<code>				
+&lt;footer class=&quot;styled&quot;&gt;
+	&lt;section&gt;
+		&lt;div class=&quot;container&quot;&gt;
+
+			&lt;div class=&quot;column three&quot;&gt;
+				&lt;h4&gt;Footer title&lt;/h4&gt;
+				&lt;ul class=&quot;fa-ul&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;column three&quot;&gt;
+				&lt;h4&gt;Footer title&lt;/h4&gt;
+				&lt;ul class=&quot;fa-ul&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;column three&quot;&gt;
+				&lt;h4&gt;Footer title&lt;/h4&gt;
+				&lt;ul class=&quot;fa-ul&quot;&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;column three&quot;&gt;
+				&lt;h4&gt;Footer title&lt;/h4&gt;
+				&lt;ul&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Footer link&lt;/a&gt;&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+	
+	&lt;/section&gt;
+
+	&lt;section class=&quot;copyright&quot;&gt;
+		&lt;div class=&quot;container&quot;&gt;
+			&lt;row&gt;
+				&lt;div class=&quot;column six left &quot;&gt;
+					Copyright information goes here 2014
+				&lt;/div&gt;
+				&lt;div class=&quot;column six right&quot;&gt;
+					&lt;a href=&quot;#&quot;&gt;Sitemap&lt;/a&gt; - &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/row&gt;
+
+	&lt;/section&gt;
+
+&lt;/footer&gt;
+
+
+			</code>
+			
+		</pre>
+
+
+
+
+		<footer class="styled">
+			<section>
+				<div class="container">
+
+					<div class="column three">
+						<h4>Footer title</h4>
+						<ul class="fa-ul">
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+						</ul>
+					</div>
+
+					<div class="column three">
+						<h4>Footer title</h4>
+						<ul class="fa-ul">
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+						</ul>
+					</div>
+
+					<div class="column three">
+						<h4>Footer title</h4>
+						<ul class="fa-ul">
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+						</ul>
+					</div>
+
+					<div class="column three">
+						<h4>Footer title</h4>
+						<ul>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+							<li><a href="#">Footer link</a></li>
+						</ul>
+					</div>
+
+				</div>
+			
+			</section>
+
+			<section class="copyright">
+				<div class="container">
+					<row>
+
+							<div class="column six left ">
+								Copyright information goes here 2014
+							</div>		
+					</row>
+
+			</section>
+
+		</footer>
+</div>
+
+
+		</section>
+		<section id="typography" class="container">
+			<div class="column twelve">
+				<h3>Typography</h3>
+				<p>By default, Sculpt uses a 2.5rem horizontal baseline grid system and 1.6rem for base font size. 1rem is equivalent to 10px, and there is a px based fallback for IE8 as it does not recognise rem as a unit of measurement.</p>
+				<p>Heading sizes are designed to stack nicely, so should you find yourself in the following situation</p>
+				<h1>With an h1</h1>
+				<h2>Then an h2</h2>
+				<h3>Then an h3</h3>
+				<h4>... and then an h4</h4>
+				<p>It will work. The above scenario is unlikely (unless you really like headings!) but it's not unusual to need to use a heading and then a subheading, for example:</p>
+				<h2>A secondary heading</h2>
+				<h4>With a secondary subheading</h4>
+				<p>And then your paragraph begins.</p>
+				<p>When text is arranged in columns it should all line up nicely.</p>
+				<div class="row">
+					<div class="column six">
+						<p class="light">No one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man's and yet as mortal as his own; that as men busied themselves about their various concerns they were scrutinised and studied, perhaps almost as narrowly as a man with a microscope might scrutinise the transient creatures that swarm and multiply in a drop of water. With infinite complacency men went to and fro over this globe about their little affairs, serene in their assurance of their empire over matter. It is possible that the infusoria under the microscope do the same. No one gave a thought to the older worlds of space as sources of human danger, or thought of them only to dismiss the idea of life upon them as impossible or improbable. It is curious to recall some of the mental habits of those departed days. At most terrestrial men fancied there might be other men upon Mars, perhaps inferior to themselves and ready to welcome a missionary enterprise. Yet across the gulf of space, minds that are to our minds as ours are to those of the beasts that perish, intellects vast and cool and unsympathetic, regarded this earth with envious eyes, and slowly and surely drew their plans against us. And early in the twentieth century came the great disillusionment.</p>
+					</div>
+					<div class="column six">
+						<p class="light">The planet Mars, I scarcely need remind the reader, revolves about the sun at a mean distance of 140,000,000 miles, and the light and heat it receives from the sun is barely half of that received by this world. It must be, if the nebular hypothesis has any truth, older than our world; and long before this earth ceased to be molten, life upon its surface must have begun its course. The fact that it is scarcely one seventh of the volume of the earth must have accelerated its cooling to the temperature at which life could begin. It has air and water and all that is necessary for the support of animated existence.</p>
+						<h4>A subheading!</h4>
+						<p class="light">Yet so vain is man, and so blinded by his vanity, that no writer, up to the very end of the nineteenth century, expressed any idea that intelligent life might have developed there far, or indeed at all, beyond its earthly level. Nor was it generally understood that since Mars is older than our earth, with scarcely a quarter of the superficial area and remoter from the sun, it necessarily follows that it is not only more distant from time's beginning but nearer its end.</p>
+					</div>
+				</div>
+					<p>It's possible to control the weight of the text through classes. As Open Sans comes with a full family of type weights it's possible to have <span class="light">Light</span>, <span class="regular">Regular</span>, <span class="semibold">Semi Bold</span>, <span class="bold">Bold</span> and <span class="extrabold">Extra Bold</span> text. As well as using the standard <b>bold</b> tags. Simply wrap the text in an element with the class <code>light</code>, <code>regular</code>, <code>semibold</code>, <code>bold</code> or <code>extrabold</code>.</p>
+					<p>It's also possible to control the spacing of letters as well, with the following classes (which can be applied to any text element):</p>
+					<h4><span class="tightest">Tightest</span>, <span class="tighter">Tighter</span>, <span class="tight">Tight</span>, <span class="loose">Loose</span>, <span class="looser">Looser</span>, <span class="loosest">Loosest</span></h4>
+			</div>
+		</section>
+		<section id="modernizr" class="container">
+			<div class="column twelve">
+				<h3>Modernizr &amp; Scripts</h3>
+				<p>Sculpt uses Modernizr to load scripts and additional files where necessary, and manage overheads to ensure that only the right scripts for the current environment are loaded.</p>
+				<p>By default Modernizr test for the following:</p>
+				<ul class="fa-ul">
+					<li><i class="fa fa-li  fa-cog"></i> <b>Touchscreen (or touch event) support</b><br>
+						For mobile devices, tablets and newer touch screen PCs
+					</li>
+					<li><i class="fa fa-li fa-cog"></i> <b>Media query and CSS3 transform events</b><br>
+						For recent browsers. This will exclude IE9 and below because while IE9 supports media queries, it does not support CSS3 transforms. If this condition isn't met, then scripts to support legacy browsers will be loaded.
+					</li>
+				</ul>
+<p>The included modernizr.init.js file loads the following.</p>
+
+<pre class="prettyprint">
+<code>
+if (Modernizr.touch) { 
+//load touch enabled scripts	
+
+	Modernizr.load
+		(
+			[
+			'/library/js/jquery.scrollTo.min.js',
+			'/library/js/jquery.localscroll.min.js',
+			'/library/js/jquery.autosize.min.js',
+			'/library/js/jquery.form.min.js',
+			'/library/js/jquery.validate.min.js',
+			'/library/js/init.touch.js'
+			]
+		)
+	
+} else { 
+	
+	if (Modernizr.mq && Modernizr.csstransforms3d) {
+	//load modern browser scripts	
+		Modernizr.load
+		(
+			[
+			'/library/js/lightbox-2.6.min.js',
+			'/library/js/jquery.autosize.min.js',
+			'/library/js/jquery.form.min.js',
+			'/library/js/jquery.validate.min.js',
+			'/library/js/jquery.scrollTo.min.js',
+			'/library/js/jquery.localscroll.min.js',
+			'/library/js/init.standard.js?v=0.2'
+			]
+		)
+		}
+	
+	else { 
+	//load legacy browser scripts
+		Modernizr.load
+		(
+			[	
+			'/library/js/lightbox-2.6.min.js',
+			'/library/js/jquery.autosize.min.js',
+			'/library/js/jquery.form.min.js',
+			'/library/js/jquery.validate.min.js',
+			'/library/js/jquery.scrollTo.min.js',
+			'/library/js/jquery.localscroll.min.js',
+			'/library/js/respond.min.js?v=0.2',
+			'/library/js/selectivizr.min.js',
+			'/library/js/init.legacy.js?v=0.2'
+			]		
+		)
+	}
+	
+}
+</code>
+</pre>
+
+<p>The most important script for legacy browsers is respond.min.js. This is a polyfill which adds media query support to IE8. Without this you will only load the mobile device styles into Internet Explorer 8 and below.</p>
+
+<p>It is possible to test for more things, it really just depends what you are setting out to do! Each testing condition loads its own initialisation file (init.touch.js, init.standard.js or init.legacy.js) which in turn ensure that the required scripts are initialised, should they require it. It also means that you aren't loading a script for touch screens which might interfere with mouse clicks. It does happen!</p>
+
+			</div>
+		</section>
+		<section class="container">
+			<div class="column twelve">
+<h3>So there you have it.</h3>
+<p>Sculpt really is that easy to use, so why not see what you can do with it?</p>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				&copy; Heart Internet 2013. Sculpt is available under the <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons Attribution-ShareAlike 4.0 International license</a> and subject to our standard <a href="http://www.heartinternet.co.uk/terms">Terms and Conditions</a>.
+			</div>
+		</footer>
+		<div id="toTop" class="default in"><a href="http://www.heartinternet.co.uk/sculpt"><i class="fa fw fa-angle-double-left"></i> Back to Sculpt.</a> <a href="#wrapper"><i class="fa fw  fa-angle-double-up"></i> Back to Top</a></div>
+		<script type="text/javascript" src="library/js/retina.min.js"></script>
+	</body>
+	</html>
