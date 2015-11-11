@@ -164,12 +164,13 @@
 	contentArea.style.backgroundRepeat = "no-repeat";
 	contentArea.style.backgroundSize = "cover";
 	var featuredItemsArea = document.getElementById("featuredItems");
-	featuredItemsArea.style.float = "right";
+	featuredItemsArea.style.paddingLeft = "10%";
 	featuredItemsArea.style.paddingRight = "10%";
 //change the body content
 	var featuresBanner = document.getElementById("featuredItemsBanner");
 	featuresBanner.innerHTML = "<h3>Who would enjoy a letter from me&#63;</h3>";
 	featuresBanner.style.paddingLeft = "10%";	
+	featuredItemsArea.style.clear = "both";
 		var feature1 = document.getElementById("feature1");
 		feature1.innerHTML = "<img class='styled' alt='Happy grandma reading letter.' src='/images/OldWmnRd1.png'><h4>My Dear Old Granny</h4><p>How about Grandma&#63; You know she always loved you best&#33;</p>";		
 		var feature2 = document.getElementById("feature2");
@@ -185,7 +186,7 @@
 	showRecipient.style.float = "right";
 	function sendLetter(letterRecipient) {
 		switch(letterRecipient) {
-			case '0': showRecipient.innerHTML = "Don&apos;t forget stamps&#58;";
+			case '0': showRecipient.innerHTML = "Don&apos;t forget stamps&#33;";
 			break;
 			case '1': showRecipient.innerHTML = "Good choice&#33; She will probably send you five dollars.";
 			break;
